@@ -1,9 +1,9 @@
-package com.qf.car.common.exception;
+package com.qf.home.common.exception;
 
 /**
- * @program: CarSys
- * @description: 会员异常 自定义异常
- * @author: Feri
+ * @program: home
+ * @description: 登录注册异常 自定义异常
+ * @author: group7
  * @create: 2019-12-10 09:48
  */
 public class UserException extends Exception {
