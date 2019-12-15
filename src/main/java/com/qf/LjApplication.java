@@ -9,7 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  *  启动类
  */
 @SpringBootApplication//标记这是一个Spring Boot项目
-@MapperScan("com.qf.car.user.dao")
+@MapperScan("com.qf.home.user.dao")
 @EnableSwagger2//启用Swagger2的扫描
 public class LjApplication {
 
