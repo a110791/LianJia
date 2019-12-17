@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.home.user.dao.LeaseHouseMapper">
+  <resultMap id="BaseResultMap" type="com.qf.home.user.entity.LeaseHouse">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="hendline" jdbcType="VARCHAR" property="hendline" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="specifiation" jdbcType="VARCHAR" property="specifiation" />
+    <result column="district_id" jdbcType="INTEGER" property="districtId" />
+    <result column="residence_id" jdbcType="INTEGER" property="residenceId" />
+    <result column="region_name" jdbcType="VARCHAR" property="regionName" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="agent_id" jdbcType="INTEGER" property="agentId" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, hendline, area, specifiation, district_id, residence_id, region_name, price, 
+    user_id, agent_id
+  </sql>
+
+  <insert id="insert" parameterType="com.qf.home.user.entity.LeaseHouse">
+    insert into lease_house (id, hendline, area, 
+      specifiation, district_id, residence_id, 
+      region_name, price, user_id, 
+      agent_id)
+    values (#{id,jdbcType=INTEGER}, #{hendline,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{specifiation,jdbcType=VARCHAR}, #{districtId,jdbcType=INTEGER}, #{residenceId,jdbcType=INTEGER}, 
+      #{regionName,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, #{userId,jdbcType=INTEGER}, 
+      #{agentId,jdbcType=INTEGER})
+  </insert>
+
+  <select id="select" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from lianjia.lease_house where user_id = #{userId}
+  </select>
+
+  <delete id="delete">
+    delete from lianjia.lease_house where id = #{id}
+  </delete>
+</mapper>

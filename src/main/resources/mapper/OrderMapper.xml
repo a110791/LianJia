@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.home.user.dao.OrderDao">
+    <resultMap id="UserMapper" type="com.qf.home.user.entity.Order">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="house_id" property="houseId"/>
+        <result column="order" property="order"/>
+    </resultMap>
+
+    <select id="select" resultMap="UserMapper">
+        select * from lianjia.order where user_id = #{userId}
+    </select>
+
+    <insert id="insert">
+        insert into lianjia.order (user_id, house_id, order_time) values (#{userId}, #{houseId}, #{order})
+    </insert>
+</mapper>
